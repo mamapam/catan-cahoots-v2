@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = process.env.VUE_APP_FIREBASE;
+const baseUrl = import.meta.env.VITE_FIREBASE;
 
 export default axios.create({
   baseURL: baseUrl,

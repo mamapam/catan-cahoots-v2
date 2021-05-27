@@ -1,20 +1,25 @@
-import Client from './axios-client';
+import axios from './axios-config';
 const resource = '/players';
 
 export default {
-  getAllPlayers() {
-    return Client.get(`${resource}.json`);
+  async getAllPlayers() {
+    const response = await axios.get(`${resource}.json`);
+    return response;
   },
-  getPlayer(id) {
-    return Client.get(`${resource}/${id}.json`);
+  async getPlayer(id) {
+    const response = await axios.get(`${resource}/${id}.json`);
+    return response;
   },
-  createPlayer(payload) {
-    return Client.post(`${resource}.json`, payload);
+  async createPlayer(payload) {
+    const response = await axios.post(`${resource}.json`, payload);
+    return response;
   },
-  updatePlayer(payload) {
-    return Client.put(`${resource}/${id}.json`, payload);
+  async updatePlayer(payload) {
+    const response = await axios.put(`${resource}/${id}.json`, payload);
+    return response;
   },
-  deletePlayer(id) {
-    return Client.delete(`${resource}/${id}.json`);
+  async deletePlayer(id) {
+    const response = await axios.delete(`${resource}/${id}.json`);
+    return response;
   },
 };
