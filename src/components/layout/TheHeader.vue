@@ -6,10 +6,43 @@
         label="Update Score"
         class="p-button-secondary"
       ></base-button>
-      <base-button label="Add Player" class="p-button-secondary"></base-button>
+      <base-button
+        label="Add Player"
+        class="p-button-secondary"
+        @click="showAddPlayer"
+      ></base-button>
     </div>
+    <base-modal v-model:visible="displayModal">
+      <template #headerContent>
+        <h1>Add Player</h1>
+      </template>
+      <add-player-form></add-player-form>
+      <template #footerContent>
+        <h1>THis is the footer</h1>
+      </template>
+    </base-modal>
   </nav>
 </template>
+
+<script>
+import AddPlayerForm from '../players/AddPlayerForm.vue';
+
+export default {
+  components: {
+    AddPlayerForm,
+  },
+  data() {
+    return {
+      displayModal: false,
+    };
+  },
+  methods: {
+    showAddPlayer() {
+      this.displayModal = true;
+    },
+  },
+};
+</script>
 
 <style scoped>
 nav {
