@@ -26,5 +26,6 @@ export default {
 <style scoped>
 div {
   background: #121212;
+  color: white;
 }
 </style>

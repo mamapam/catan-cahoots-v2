@@ -16,10 +16,7 @@
       <template #headerContent>
         <h1>Add Player</h1>
       </template>
-      <add-player-form></add-player-form>
-      <template #footerContent>
-        <h1>THis is the footer</h1>
-      </template>
+      <add-player-form @close-form="hideAddPlayer"></add-player-form>
     </base-modal>
   </nav>
 </template>
@@ -39,6 +36,9 @@ export default {
   methods: {
     showAddPlayer() {
       this.displayModal = true;
+    },
+    hideAddPlayer() {
+      this.displayModal = false;
     },
   },
 };

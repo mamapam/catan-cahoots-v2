@@ -18,6 +18,14 @@ export default {
         console.log(e);
       }
     },
+    async createPlayer(context, data) {
+      const payload = {
+        colour: data.colour,
+        username: data.username,
+      };
+      await playerApi.createPlayer(payload);
+      await context.dispatch('loadPlayers');
+    },
   },
   mutations: {
     setPlayers(state, payload) {

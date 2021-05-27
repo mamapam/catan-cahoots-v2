@@ -39,11 +39,13 @@
         </template>
       </base-dropdown>
     </div>
+    <base-button label="Create!" @click="submitPlayer"></base-button>
   </form>
 </template>
 
 <script>
 export default {
+  emits: ['close-form'],
   data() {
     return {
       username: '',
@@ -56,6 +58,16 @@ export default {
         { name: 'Pink', code: '#cf359b' },
       ],
     };
+  },
+  methods: {
+    async submitPlayer() {
+      const data = {
+        username: this.username,
+        colour: this.colour,
+      };
+      await this.$store.dispatch('players/createPlayer', data);
+      this.$emit('close-form');
+    },
   },
 };
 </script>
