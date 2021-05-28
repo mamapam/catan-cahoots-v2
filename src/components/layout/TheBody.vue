@@ -4,7 +4,7 @@
       <base-card>
         <template #titleContent> Player Score Table </template>
         <template #contentContent>
-          {{ playerList }}
+          <score-table></score-table>
         </template>
       </base-card>
     </section>
@@ -12,7 +12,12 @@
 </template>
 
 <script>
+import ScoreTable from '../scores/ScoreTable.vue';
+
 export default {
+  components: {
+    ScoreTable,
+  },
   computed: {
     playerList() {
       const playerList = this.$store.getters['players/players'];
@@ -31,8 +36,9 @@ export default {
 </script>
 
 <style scoped>
-main {
+main * {
   color: #ffffff;
+  font-family: inherit;
 }
 
 .grid {

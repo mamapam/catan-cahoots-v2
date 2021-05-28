@@ -1,7 +1,9 @@
 <template>
   <div>
-    <data-table>
-      <table-column></table-column>
+    <data-table :value="tableScores" responsiveLayout="scroll">
+      <table-column field="username" header="Player"></table-column>
+      <table-column field="wins" header="Wins"></table-column>
+      <table-column field="losses" header="Losses"></table-column>
     </data-table>
   </div>
 </template>
@@ -14,6 +16,32 @@ export default {
   components: {
     DataTable,
     TableColumn,
+  },
+  computed: {
+    scores() {
+      const scores = this.$store.getters['scores/scores'];
+      return scores;
+    },
+    tableScores() {
+      const data = [];
+      for (const key in this.scores) {
+        const score = {
+          username: this.scores[key].username,
+          wins: this.scores[key].wins,
+          losses: this.scores[key].losses,
+        };
+        data.push(score);
+      }
+      return data;
+    },
+  },
+  methods: {
+    async loadScores() {
+      await this.$store.dispatch('scores/loadScores');
+    },
+  },
+  created() {
+    this.loadScores();
   },
 };
 </script>

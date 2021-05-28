@@ -36,6 +36,7 @@ export default {
 
       await scoreApi.createNewScore(scorePayload);
       await context.dispatch('loadPlayers');
+      await context.dispatch('scores/loadScores', null, { root: true });
     },
   },
   mutations: {
