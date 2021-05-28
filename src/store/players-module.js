@@ -1,6 +1,7 @@
 import api from '../api/api-factory';
 
 const playerApi = api.get('players');
+const scoreApi = api.get('scores');
 
 export default {
   namespaced: true,
@@ -23,7 +24,16 @@ export default {
         colour: data.colour,
         username: data.username,
       };
-      await playerApi.createPlayer(payload);
+      const response = await playerApi.createPlayer(payload);
+
+      const scorePayload = {
+        playerId: response.data.name,
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
+      await scoreApi.createNewScore(scorePayload);
       await context.dispatch('loadPlayers');
     },
   },

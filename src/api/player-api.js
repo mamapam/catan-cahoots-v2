@@ -1,4 +1,5 @@
 import axios from './axios-config';
+
 const resource = '/players';
 
 export default {
