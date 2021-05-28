@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <section>
     {{ playerList }}
-  </div>
+  </section>
 </template>
 
 <script>
@@ -24,8 +24,7 @@ export default {
 </script>
 
 <style scoped>
-div {
-  background: #121212;
-  color: white;
+section {
+  color: #ffffff;
 }
 </style>
