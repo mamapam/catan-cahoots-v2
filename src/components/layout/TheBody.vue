@@ -1,7 +1,14 @@
 <template>
-  <section>
-    {{ playerList }}
-  </section>
+  <main class="grid">
+    <section class="player-score-table">
+      <base-card>
+        <template #titleContent> Player Score Table </template>
+        <template #contentContent>
+          {{ playerList }}
+        </template>
+      </base-card>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -24,7 +31,17 @@ export default {
 </script>
 
 <style scoped>
-section {
+main {
   color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.player-score-table {
+  grid-column: 2/24;
+  margin-top: 1.2em;
 }
 </style>
