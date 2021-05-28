@@ -28,6 +28,7 @@ export default {
 
       const scorePayload = {
         playerId: response.data.name,
+        username: data.username,
         wins: 0,
         losses: 0,
         ties: 0,
