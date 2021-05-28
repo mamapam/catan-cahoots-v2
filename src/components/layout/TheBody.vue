@@ -8,15 +8,25 @@
         </template>
       </base-card>
     </section>
+    <section class="player-score-stacked">
+      <base-card>
+        <template #titleContent> Player Score Stacked </template>
+        <template #contentContent>
+          <score-stacked></score-stacked>
+        </template>
+      </base-card>
+    </section>
   </main>
 </template>
 
 <script>
 import ScoreTable from '../scores/ScoreTable.vue';
+import ScoreStacked from '../scores/ScoreStacked.vue';
 
 export default {
   components: {
     ScoreTable,
+    ScoreStacked,
   },
   computed: {
     playerList() {
@@ -46,8 +56,13 @@ main * {
   grid-template-columns: repeat(24, 1fr);
 }
 
-.player-score-table {
+.player-score-table,
+.player-score-stacked {
   grid-column: 2/24;
   margin-top: 1.2em;
+}
+
+main {
+  padding-bottom: 1.2em;
 }
 </style>
