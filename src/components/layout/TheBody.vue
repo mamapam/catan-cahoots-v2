@@ -38,9 +38,13 @@ export default {
     async loadPlayers() {
       await this.$store.dispatch('players/loadPlayers');
     },
+    async loadScores() {
+      await this.$store.dispatch('scores/loadScores');
+    },
   },
-  created() {
-    this.loadPlayers();
+  async created() {
+    await this.loadPlayers();
+    await this.loadScores();
   },
 };
 </script>

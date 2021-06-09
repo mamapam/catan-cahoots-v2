@@ -35,13 +35,5 @@ export default {
       return data;
     },
   },
-  methods: {
-    async loadScores() {
-      await this.$store.dispatch('scores/loadScores');
-    },
-  },
-  created() {
-    this.loadScores();
-  },
 };
 </script>

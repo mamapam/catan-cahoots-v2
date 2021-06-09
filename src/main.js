@@ -12,7 +12,6 @@ import BaseCard from './components/ui/BaseCard.vue';
 import 'primevue/resources/themes/arya-blue/theme.css'; //theme
 import 'primevue/resources/primevue.min.css'; //core css
 import 'primeicons/primeicons.css'; //icons
-import 'primeflex/primeflex.css';
 
 import store from './store/index';
 
