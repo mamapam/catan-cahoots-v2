@@ -97,8 +97,10 @@ export default {
       await new Chart(ctx, this.graphData);
     },
   },
-  async mounted() {
-    await this.setupGraph();
+  mounted() {
+    setTimeout(() => {
+      this.setupGraph();
+    }, 200);
   },
 };
 </script>
