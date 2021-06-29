@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
+import VueApexCharts from 'vue3-apexcharts';
 
 import App from './App.vue';
 
@@ -20,6 +21,8 @@ const app = createApp(App);
 app.use(store);
 
 app.use(PrimeVue);
+
+app.use(VueApexCharts);
 
 app.component('base-button', BaseButton);
 app.component('base-modal', BaseModal);

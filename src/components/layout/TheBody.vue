@@ -11,7 +11,9 @@
     <section class="player-score-stacked">
       <base-card>
         <template #titleContent> Player Score Stacked </template>
-        <template #contentContent> </template>
+        <template #contentContent>
+          <score-stacked></score-stacked>
+        </template>
       </base-card>
     </section>
     <section class="player-score-pie">
@@ -25,10 +27,12 @@
 
 <script>
 import ScoreTable from '../scores/ScoreTable.vue';
+import ScoreStacked from '../scores/ScoreStacked.vue';
 
 export default {
   components: {
     ScoreTable,
+    ScoreStacked,
   },
   computed: {
     playerList() {
