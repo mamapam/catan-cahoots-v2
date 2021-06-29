@@ -16,10 +16,16 @@
         </template>
       </base-card>
     </section>
-    <section class="player-score-pie">
+    <section
+      class="player-score-pie"
+      v-for="score in scores"
+      :key="score.playerId"
+    >
       <base-card>
-        <template #titleContent>Score Pie</template>
-        <template #contentContent> </template>
+        <template #titleContent>{{ score.username }} Score Pie</template>
+        <template #contentContent>
+          <score-pie :wins="score.wins" :losses="score.losses"></score-pie>
+        </template>
       </base-card>
     </section>
   </main>
@@ -28,11 +34,13 @@
 <script>
 import ScoreTable from '../scores/ScoreTable.vue';
 import ScoreStacked from '../scores/ScoreStacked.vue';
+import ScorePie from '../scores/ScorePie.vue';
 
 export default {
   components: {
     ScoreTable,
     ScoreStacked,
+    ScorePie,
   },
   computed: {
     playerList() {
@@ -43,9 +51,6 @@ export default {
       const scores = this.$store.getters['scores/scores'];
       return scores;
     },
-  },
-  watch: {
-    scores() {},
   },
   methods: {
     async loadPlayers() {

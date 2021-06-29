@@ -1,7 +1,6 @@
 <template>
   <div>
-    <apexchart width="400" type="bar" :options="chartOptions" :series="series">
-    </apexchart>
+    <apexchart type="bar" :options="chartOptions" :series="series"> </apexchart>
   </div>
 </template>
 
@@ -33,7 +32,6 @@ export default {
       return {
         chart: {
           type: 'bar',
-          height: 350,
           stacked: true,
           toolbar: {
             show: true,
@@ -62,5 +60,6 @@ export default {
 div {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 </style>
