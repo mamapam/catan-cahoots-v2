@@ -48,5 +48,12 @@ export default {
     players(state) {
       return state.players;
     },
+    listOfPlayers(state) {
+      const players = [];
+      for (const player in state.players) {
+        players.push(state.players[player].username);
+      }
+      return players;
+    },
   },
 };

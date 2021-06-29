@@ -11,9 +11,13 @@
     <section class="player-score-stacked">
       <base-card>
         <template #titleContent> Player Score Stacked </template>
-        <template #contentContent>
-          <score-stacked></score-stacked>
-        </template>
+        <template #contentContent> </template>
+      </base-card>
+    </section>
+    <section class="player-score-pie">
+      <base-card>
+        <template #titleContent>Score Pie</template>
+        <template #contentContent> </template>
       </base-card>
     </section>
   </main>
@@ -21,18 +25,23 @@
 
 <script>
 import ScoreTable from '../scores/ScoreTable.vue';
-import ScoreStacked from '../scores/ScoreStacked.vue';
 
 export default {
   components: {
     ScoreTable,
-    ScoreStacked,
   },
   computed: {
     playerList() {
       const playerList = this.$store.getters['players/players'];
       return playerList;
     },
+    scores() {
+      const scores = this.$store.getters['scores/scores'];
+      return scores;
+    },
+  },
+  watch: {
+    scores() {},
   },
   methods: {
     async loadPlayers() {
@@ -61,7 +70,8 @@ main * {
 }
 
 .player-score-table,
-.player-score-stacked {
+.player-score-stacked,
+.player-score-pie {
   grid-column: 2/24;
   margin-top: 1.2em;
 }

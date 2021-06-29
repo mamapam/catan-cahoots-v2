@@ -28,5 +28,19 @@ export default {
     scores(state) {
       return state.scores;
     },
+    listOfWins(state) {
+      const wins = [];
+      for (const score in state.scores) {
+        wins.push(state.scores[score].wins);
+      }
+      return wins;
+    },
+    listOfLosses(state) {
+      const losses = [];
+      for (const score in state.scores) {
+        losses.push(state.scores[score].losses);
+      }
+      return losses;
+    },
   },
 };
