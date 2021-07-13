@@ -67,6 +67,7 @@ h1 {
 div {
   margin: 0 auto;
   padding-top: 10px;
+  display: flex;
 }
 
 button {

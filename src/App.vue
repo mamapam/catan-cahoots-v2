@@ -5,7 +5,7 @@
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
-import TheBody from './components/layout/TheBody.vue';
+import TheBody from './components/layout/TheBodyredo.vue';
 
 export default {
   components: {

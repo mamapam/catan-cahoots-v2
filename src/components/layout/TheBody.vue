@@ -16,18 +16,22 @@
         </template>
       </base-card>
     </section>
-    <section
-      class="player-score-pie"
-      v-for="score in scores"
-      :key="score.playerId"
-    >
-      <base-card>
-        <template #titleContent>{{ score.username }} Score Pie</template>
-        <template #contentContent>
-          <score-pie :wins="score.wins" :losses="score.losses"></score-pie>
-        </template>
-      </base-card>
-    </section>
+    <div>
+      <div id="pies">
+        <section
+          class="player-score-pie"
+          v-for="score in scores"
+          :key="score.playerId"
+        >
+          <base-card>
+            <template #titleContent>{{ score.username }} Score Pie</template>
+            <template #contentContent>
+              <score-pie :wins="score.wins" :losses="score.losses"></score-pie>
+            </template>
+          </base-card>
+        </section>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -76,6 +80,8 @@ main * {
 .grid {
   display: grid;
   grid-template-columns: repeat(24, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: 300px 100px;
 }
 
 .player-score-table,
@@ -87,5 +93,32 @@ main * {
 
 main {
   padding-bottom: 1.2em;
+}
+
+@media screen and (min-width: 1280px) {
+  .player-score-table {
+    grid-column: 2/12;
+    margin-top: 1.2em;
+  }
+
+  .player-score-stacked {
+    grid-column: 13/24;
+    margin-top: 1.2em;
+  }
+
+  /* .player-score-pie { */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* grid-auto-flow: column; */
+  /* } */
+
+  /* 
+  #pies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
 }
 </style>
