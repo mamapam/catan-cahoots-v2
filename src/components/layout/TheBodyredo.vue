@@ -80,7 +80,7 @@ main * {
 .player-score-table,
 .player-score-stacked,
 .player-score-pie {
-  padding: 1.2em 1em;
+  padding: 1.2em 0.4em;
 }
 
 .grid {

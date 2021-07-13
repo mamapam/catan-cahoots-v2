@@ -5,6 +5,7 @@
       <base-button
         label="Update Score"
         class="p-button-secondary"
+        @click="showUpdatePlayer"
       ></base-button>
       <base-button
         label="Add Player"
@@ -18,19 +19,28 @@
       </template>
       <add-player-form @close-form="hideAddPlayer"></add-player-form>
     </base-modal>
+    <base-modal v-model:visible="showPlayerUpdateModal">
+      <template #headerContent>
+        <h1>Update Player Score</h1>
+      </template>
+      <player-update @close-update="hideUpdatePlayer"></player-update>
+    </base-modal>
   </nav>
 </template>
 
 <script>
 import AddPlayerForm from '../players/AddPlayerForm.vue';
+import PlayerUpdate from '../players/PlayerUpdate.vue';
 
 export default {
   components: {
     AddPlayerForm,
+    PlayerUpdate,
   },
   data() {
     return {
       displayModal: false,
+      showPlayerUpdateModal: false,
     };
   },
   methods: {
@@ -39,6 +49,12 @@ export default {
     },
     hideAddPlayer() {
       this.displayModal = false;
+    },
+    showUpdatePlayer() {
+      this.showPlayerUpdateModal = true;
+    },
+    hideUpdatePlayer() {
+      this.showPlayerUpdateModal = false;
     },
   },
 };
