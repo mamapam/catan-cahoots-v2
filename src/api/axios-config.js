@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = import.meta.env.VITE_FIREBASE;
+const baseUrl = import.meta.env.VITE_DB;
 
 export default axios.create({
   baseURL: baseUrl,
