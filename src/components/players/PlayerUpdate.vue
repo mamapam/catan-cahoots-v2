@@ -35,8 +35,26 @@ export default {
     },
   },
   methods: {
-    updatePlayerScore() {
+    async updatePlayerScore() {
       if (this.selectedPlayer !== null) {
+        const allScores = this.$store.getters['scores/scores'];
+        const updateScores = [];
+        for (const player in allScores) {
+          if (this.selectedPlayer === allScores[player].playerId) {
+            const data = {
+              id: player,
+              body: { wins: allScores[player].wins + 1 },
+            };
+            updateScores.push(data);
+          } else {
+            const data = {
+              id: player,
+              body: { losses: allScores[player].losses + 1 },
+            };
+            updateScores.push(data);
+          }
+        }
+        await this.$store.dispatch('scores/updateScores', updateScores);
       }
 
       this.$emit('close-update');

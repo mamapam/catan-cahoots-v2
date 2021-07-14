@@ -11,4 +11,8 @@ export default {
     const response = await axios.post(`${resource}.json`, payload);
     return response;
   },
+  async updateScore(userId, payload) {
+    const response = await axios.patch(`${resource}/${userId}.json`, payload);
+    return response;
+  },
 };

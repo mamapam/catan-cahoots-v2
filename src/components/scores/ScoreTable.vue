@@ -4,6 +4,7 @@
       <table-column field="username" header="Player"></table-column>
       <table-column field="wins" header="Wins"></table-column>
       <table-column field="losses" header="Losses"></table-column>
+      <table-column field="total" header="Total Games"></table-column>
     </data-table>
   </div>
 </template>
@@ -29,6 +30,7 @@ export default {
           username: this.scores[key].username,
           wins: this.scores[key].wins,
           losses: this.scores[key].losses,
+          total: this.scores[key].wins + this.scores[key].losses,
         };
         data.push(score);
       }
