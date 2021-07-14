@@ -80,6 +80,10 @@ form {
   align-items: center;
 }
 
+div {
+  margin-bottom: 0.5em;
+}
+
 label {
   padding-right: 10px;
 }
